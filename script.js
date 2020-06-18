@@ -1,5 +1,5 @@
 // Set the date we're counting down to
-var countDownDate = new Date("Jun 19, 2020 0:0:0").getTime();
+var countDownDate = new Date("Jun 18, 2020 21:12:55").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -35,6 +35,7 @@ app.timer = days + " " + hours + " " + minutes + " " + seconds;
 if (distance < 0) {
     clearInterval(x);
     app.timer = "EXPIRED";
+    app.on_zero();
 }
 }, 1000);
 

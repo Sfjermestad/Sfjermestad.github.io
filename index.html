@@ -22,25 +22,42 @@
 
 </head>
 <body>
-    <div id="app"> {{ timer }} </div>
+   
+    
+    <div id="app" v-bind:class="{ 'backround_image': hidden }" > 
+        <div id="container">
+            <div class="timer"
+            v-bind:class="{ 'timer': first_class, 'text': expired, 'hidden': hidden  }">
+                {{ timer }} 
+            </div>
 
-    <div id="logo">
-        <img src="images/Skyskraper_logo.jpg" alt="skyskraper logo" srcset="" style="width: 24vw; height: 7vw">
-    </div>
+            <div class="video-responsive"
+            v-bind:class="{ 'video_hidden': hide_video }">
+                <center><iframe src="https://www.youtube.com/embed/zHexEiRx07o" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+            </div>
+        
 
-    <div id='footer'>
-        <div id='links'>
-            <span id="facebook" style="width: 40px;" class="sm-links">
-                <a href=https://www.facebook.com/skyskraperband/ class="fab fa-facebook-square" title="Facebook"></a>
-            </span>
-            <span id="instagram" style="width: 40px;" class="sm-links">
-                <a href="https://www.instagram.com/skyskraperband/" class="fab fa-instagram-square" title="Instagram"></a>
-            </span>
-            <span id="spotify" class="sm-links">
-                <a href="https://open.spotify.com/artist/3SYUE0c4ieKIJMApQYhzwC?si=S_5PvRXCQEuNaIj8k1FTCQ" class="fab fa-spotify"></a>
-            </span>
-            
-            
+            <div id="logo">
+                <img src="images/Skyskraper_logo.png" alt="skyskraper logo" srcset="" style="width: 24vw; height: 7vw">
+            </div>
+            <div id="push"></div>
+        </div>
+        
+
+        <div id='footer'>
+            <div id='links'>
+                <span id="facebook" style="width: 40px;" class="sm-links">
+                    <a href=https://www.facebook.com/skyskraperband/ class="fab fa-facebook-square" title="Facebook"></a>
+                </span>
+                <span id="instagram" style="width: 40px;" class="sm-links">
+                    <a href="https://www.instagram.com/skyskraperband/" class="fab fa-instagram-square" title="Instagram"></a>
+                </span>
+                <span id="spotify" class="sm-links">
+                    <a href="https://open.spotify.com/artist/3SYUE0c4ieKIJMApQYhzwC?si=S_5PvRXCQEuNaIj8k1FTCQ" class="fab fa-spotify" title="Spotify"></a>
+                </span>
+                
+                
+            </div>
         </div>
     </div>
     
@@ -48,7 +65,29 @@
         var app = new Vue ({
             el: '#app',
             data:{
-                timer: '__ __ __ __'
+                timer: '__ __ __ __',
+                expired: false,
+                first_class: true,
+                hidden: false,
+                visible: false,
+                hide_video: true
+            },
+
+            methods:{
+                on_zero: function(){
+                    this.timer = "FLOOR ONE IS OUT NOW!"
+                    this.expired = true;
+                    this.first_class = false;
+                    
+                    setTimeout(() => 
+                    this.hidden = true, 6000);
+                    setTimeout(() => 
+                    this.timer = "", 6000);
+                    setTimeout(() => 
+                    this.hide_video = false, 6000);
+                    setTimeout(() => 
+                    document.body.style.backgroundImage="url('ep_cover_bg5.jpg')", 6000);
+                }
             }
         })
     </script>
@@ -56,5 +95,3 @@
 </body>
     
 </html>
-
-
