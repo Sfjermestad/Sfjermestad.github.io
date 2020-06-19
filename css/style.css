@@ -1,8 +1,8 @@
 body{
-    background-color: #f3f3f3;
+    /* background-color: #f3f3f3; */
     margin: 0;
     padding: 0;
-    /* background-image: url("ep_cover_bg5.jpg"); */
+    background-image: url("ep_cover_bg5.jpg");
     background-size: cover;
     background-repeat: repeat-x;
     display: flex;
@@ -77,25 +77,6 @@ body{
 iframe{
     width: 80vw;
     height: 45vw;
-}
-.video_hidden{
-    order: 3;
-    display: none;
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
-}
-
-.hidden{
-    margin-top: 10vw;
-    padding-top: 190px;
-    transform: scale();
-    font-family: Helvetica, sans-serif;
-    font-size: 7vw;
-    text-align: center;
-    color: #444444;
-    display: none;
 }
 
 #links{
